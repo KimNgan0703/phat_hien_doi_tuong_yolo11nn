@@ -3,13 +3,14 @@
 import io
 from typing import Any
 
-import cv2
+
 
 from ultralytics import YOLO
 from ultralytics.utils import LOGGER
 from ultralytics.utils.checks import check_requirements
 from ultralytics.utils.downloads import GITHUB_ASSETS_STEMS
 
+import cv2
 
 class Inference:
     """
@@ -123,6 +124,8 @@ class Inference:
                     out.write(g.read())  # Read bytes into file
                 self.vid_file_name = "ultralytics.mp4"
         elif self.source == "webcam":
+            from streamlit_webrtc import webrtc_streamer,VideoProcessorBase, webRtcMode, RTCConfiguration
+            import av
             self.vid_file_name = 0  # Use webcam index 0
 
     def configure(self):
